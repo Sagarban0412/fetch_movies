@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import GenreList from "@/components/GenerList";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,10 +25,22 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header/>
-        <GenreList/>
+        <header className="flex items-center p-4 border-b shadow-sm">
+          <Link href="/">
+            <Image
+              src="/logo.jpg"
+              alt="Logo"
+              width={120}
+              height={40}
+              className="h-auto w-auto"
+              priority
+            />
+          </Link>
+        </header>
+        <Header />
+        <GenreList />
         {children}
-        <Analytics/>
+        <Analytics />
       </body>
     </html>
   );
