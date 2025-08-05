@@ -26,23 +26,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-900 min-h-screen`}
       >
-        {/* <header className="flex items-center p-4 border-b shadow-sm">
-          <Link href="/">
-            <Image
-              src="/logo.jpg"
-              alt="Logo"
-              width={120}
-              height={40}
-              className="h-auto w-auto"
-              priority
-            />
-          </Link>
-        </header> */}
         <Header />
         <GenreList />
-        {children}
+        <main>
+          {children}
+        </main>
         <Analytics />
       </body>
     </html>

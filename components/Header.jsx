@@ -3,11 +3,11 @@ import SearchBar from './SearchBar'
 
 const Header = () => {
   return (
-    <>
-    <div className='py-2 '>
-    <SearchBar/>
-    </div>
-    </>
+    <header className="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800">
+      <div className="container mx-auto">
+        <SearchBar/>
+      </div>
+    </header>
   )
 }
 

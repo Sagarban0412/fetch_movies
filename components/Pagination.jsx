@@ -21,12 +21,15 @@ const Pagination = ({ page, totalPages, onPageChange }) => {
   };
 
   return (
-    <div className="mt-8 flex flex-wrap justify-center gap-2">
+    <div className="mt-12 flex flex-wrap justify-center gap-2">
       <button
         onClick={() => onPageChange(page - 1)}
         disabled={page <= 1}
-        className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
+        className="px-4 py-2 rounded-lg bg-slate-800/50 backdrop-blur-sm text-white hover:bg-slate-700/50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 border border-slate-700 hover:border-purple-500"
       >
+        <svg className="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
         Prev
       </button>
 
@@ -34,11 +37,11 @@ const Pagination = ({ page, totalPages, onPageChange }) => {
         <>
           <button
             onClick={() => onPageChange(1)}
-            className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300"
+            className="px-4 py-2 rounded-lg bg-slate-800/50 backdrop-blur-sm text-white hover:bg-slate-700/50 transition-all duration-300 border border-slate-700 hover:border-purple-500"
           >
             1
           </button>
-          {page > 4 && <span className="px-2 text-gray-500">...</span>}
+          {page > 4 && <span className="px-2 py-2 text-gray-400">...</span>}
         </>
       )}
 
@@ -46,10 +49,10 @@ const Pagination = ({ page, totalPages, onPageChange }) => {
         <button
           key={pg}
           onClick={() => onPageChange(pg)}
-          className={`px-3 py-1 rounded ${
+          className={`px-4 py-2 rounded-lg transition-all duration-300 border ${
             pg === page
-              ? "bg-blue-600 text-white font-semibold"
-              : "bg-gray-200 hover:bg-gray-300"
+              ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold border-purple-500 shadow-lg"
+              : "bg-slate-800/50 backdrop-blur-sm text-white hover:bg-slate-700/50 border-slate-700 hover:border-purple-500"
           }`}
         >
           {pg}
@@ -59,11 +62,11 @@ const Pagination = ({ page, totalPages, onPageChange }) => {
       {page < totalPages - 2 && (
         <>
           {page < totalPages - 3 && (
-            <span className="px-2 text-gray-500">...</span>
+            <span className="px-2 py-2 text-gray-400">...</span>
           )}
           <button
             onClick={() => onPageChange(totalPages)}
-            className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300"
+            className="px-4 py-2 rounded-lg bg-slate-800/50 backdrop-blur-sm text-white hover:bg-slate-700/50 transition-all duration-300 border border-slate-700 hover:border-purple-500"
           >
             {totalPages}
           </button>
@@ -73,9 +76,12 @@ const Pagination = ({ page, totalPages, onPageChange }) => {
       <button
         onClick={() => onPageChange(page + 1)}
         disabled={page >= totalPages}
-        className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
+        className="px-4 py-2 rounded-lg bg-slate-800/50 backdrop-blur-sm text-white hover:bg-slate-700/50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 border border-slate-700 hover:border-purple-500"
       >
         Next
+        <svg className="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
       </button>
     </div>
   );
